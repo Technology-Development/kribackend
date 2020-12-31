@@ -1,17 +1,17 @@
 import dotenv from "dotenv"
-// import products from "./data/products.js"
+import products from "./data/products.js"
 //import vendors from "./data/vendors.js"
-import customers from "./data/customers.js"
+//import customers from "./data/customers.js"
 // import Vendor from "./models/vendorModel.js"
-import Customer from "./models/customerModel.js"
+import Product from "./models/productModel.js"
 import connectDB from "./config/db.js"
 
 dotenv.config();
 connectDB();
 const importData = async () => {
   try {
-    await Customer.deleteMany();
-    await Customer.insertMany(customers);
+    await Product.deleteMany();
+    await Product.insertMany(products);
     console.log(`DB connected and imported`);
   } catch(error){
     console.log(`${error}`);
